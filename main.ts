@@ -3,9 +3,6 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
         Bauer.vy = -250
     }
 })
-scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile`, function (sprite, location) {
-    game.gameOver(true)
-})
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     projectile2 = sprites.createProjectileFromSprite(img`
         . . . . . . . e c 7 . . . . . . 
@@ -31,6 +28,9 @@ info.onCountdownEnd(function () {
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile2`, function (sprite, location) {
     game.gameOver(false)
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile f`, function (sprite, location) {
+    game.gameOver(true)
 })
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
     sprites.destroy(mySprite)
